@@ -20,9 +20,6 @@ async function getInf(b = "RUB", s = "USD", val = 1) {
   //.asyncinin icinde await olur.
   let res = await fetch(url);
   let data = await res.json();
-  console.log(val);
-  console.log(data);
-  console.log(data.rates[symbols]);
   //print eleyek
   printVal(data.rates[symbols], val);
   printText(b, s, 1);
@@ -30,14 +27,12 @@ async function getInf(b = "RUB", s = "USD", val = 1) {
 //soldaki inputu secirik 
 leftInput.addEventListener("input", function (e) {
   val = parseFloat(leftInput.value); //
-  console.log(val);
+
   getInf(baseValue, symbolsValue, val);
 });
 //ekrana cixartmaq
 function printVal(p, val) {
   //Soldaki deyeri soldakina gosterir
-  console.log(val);
-  console.log(p);
   if (val == 0) {
     p = 0;
   } else if (val == " ") {
@@ -76,3 +71,5 @@ for (const symbolsRadioButton of SymbolradioButtons) {
   });
 }
 getInf("RUB", "USD", 1);
+
+
